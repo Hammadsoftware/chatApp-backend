@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hammad Tariq - Web Developer</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .container {
+      background: rgba(255,255,255,0.9);
+      padding: 40px 30px 30px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    img {
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #74ebd5;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 2.2rem;
+      color: #333;
+      letter-spacing: 1px;
+    }
+    h2 {
+      margin: 0 0 18px 0;
+      font-size: 1.2rem;
+      color: #666;
+      font-weight: 400;
+    }
+    .running-icon {
+      margin: 20px 0 10px 0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .rocket {
+      width: 60px;
+      height: 90px;
+      margin-bottom: 8px;
+      animation: bounce 1.2s infinite;
+      display: block;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-18px);}
+    }
+    .flame {
+      animation: flame-flicker 0.5s infinite alternate;
+      transform-origin: 50% 0%;
+    }
+    .flame2 {
+      animation: flame-flicker2 0.6s infinite alternate;
+      transform-origin: 50% 0%;
+    }
+    .flame3 {
+      animation: flame-flicker3 0.7s infinite alternate;
+      transform-origin: 50% 0%;
+    }
+    @keyframes flame-flicker {
+      0% { opacity: 1; transform: scaleY(1);}
+      100% { opacity: 0.7; transform: scaleY(1.2);}
+    }
+    @keyframes flame-flicker2 {
+      0% { opacity: 0.8; transform: scaleY(1);}
+      100% { opacity: 0.5; transform: scaleY(1.3);}
+    }
+    @keyframes flame-flicker3 {
+      0% { opacity: 0.7; transform: scaleY(1);}
+      100% { opacity: 0.4; transform: scaleY(1.1);}
+    }
+    .status {
+      color: #27ae60;
+      font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="./1735457723337.jpeg" alt="Hammad Tariq">
+    <h1>Hammad Tariq</h1>
+    <h2>Web Developer</h2>
+    <div class="running-icon">
+      <svg class="rocket" viewBox="0 0 60 90">
+        <!-- Rocket body -->
+        <ellipse cx="30" cy="35" rx="14" ry="30" fill="#eee" stroke="#333" stroke-width="2"/>
+        <!-- Rocket window -->
+        <circle cx="30" cy="30" r="7" fill="#74ebd5" stroke="#333" stroke-width="2"/>
+        <!-- Rocket fins -->
+        <polygon points="16,65 10,85 30,75" fill="#74ebd5" stroke="#333" stroke-width="2"/>
+        <polygon points="44,65 50,85 30,75" fill="#74ebd5" stroke="#333" stroke-width="2"/>
+        <!-- Flames -->
+        <ellipse class="flame" cx="30" cy="85" rx="7" ry="13" fill="orange" opacity="0.8"/>
+        <ellipse class="flame2" cx="30" cy="90" rx="4" ry="8" fill="gold" opacity="0.7"/>
+        <ellipse class="flame3" cx="30" cy="95" rx="2" ry="4" fill="red" opacity="0.6"/>
+      </svg>
+      <div class="status">
+        <span>Backend is running</span>
+        <span style="font-size:1.2em;">🚀</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
