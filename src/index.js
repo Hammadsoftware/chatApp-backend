@@ -17,7 +17,7 @@ const port = process.env.PORT || 3000;
 connectDB();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://chatapp-frontend-ytyc.onrender.com',
   credentials: true,
 }));
 app.use(express.json());
