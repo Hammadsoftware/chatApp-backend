@@ -102,18 +102,23 @@ export const updateProfile = async (req, res) => {
     user.username = username;
     user.email = email;
 
-    if (picture && isValidImage(picture)) {
-      user.profilePicture = picture;
+    if (picture) {
+      user.profilePicture = picture; // <- This field must match your schema
     }
 
     const updatedUser = await user.save();
     const { password, ...userData } = updatedUser.toObject();
 
-    res.status(200).json({ message: "Profile updated successfully", user: userData });
+    res.status(200).json({
+      message: "Profile updated successfully",
+      user: userData,
+    });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error('Update Profile Error:', error); // ✅ Add this line
+    res.status(500).json({ message: error.message || "Internal server error" });
   }
 };
+
 
 
 export const checkAuth = (req, res) => {
