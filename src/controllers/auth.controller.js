@@ -87,29 +87,34 @@ export const logout = (req, res) => {
 };
 
 export const updateProfile = async (req, res) => {
-  // assuming user is authenticated and ID is in token
   const { username, email, _id, picture } = req.body;
+
   if (!username || !email || !_id) {
     return res.status(400).json({ message: "Please fill all fields" });
   }
+
   try {
     const user = await User.findById(_id);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
+
     user.username = username;
     user.email = email;
-    if (picture) {
-      user.profilePicture = picture; // <-- update the correct field!
+
+    if (picture && isValidImage(picture)) {
+      user.profilePicture = picture;
     }
+
     const updatedUser = await user.save();
     const { password, ...userData } = updatedUser.toObject();
+
     res.status(200).json({ message: "Profile updated successfully", user: userData });
-  }
-  catch (error) {
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 export const checkAuth = (req, res) => {
   try {
