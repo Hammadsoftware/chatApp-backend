@@ -7,10 +7,10 @@ import router from './routes/auth.routes.js';
 import connectDB from './lib/db.js';
 import messageRoutes from './routes/messege.routes.js';
 import cors from 'cors';
-
+import {app, server } from './lib/socket.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const app = express();
+
 const port = process.env.PORT || 3000;
 
 // Connect to MongoDB
@@ -37,6 +37,6 @@ app.use('/api/auth', router);
 app.use('/api/messege', messageRoutes);
 
 // Start Express server
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
